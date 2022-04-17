@@ -1,20 +1,25 @@
 const { render } = require("ejs");
+const flight = require("../models/flight");
 const Flight = require("../models/flight");
 
 module.exports = {
     new: newFlight,
-    create
+    create,
+    index
 };
 
+function index(req, res) {
+    flight.find({}, function(err, flights){
+        res.render('flights/index', { flights });
+    });
+}
+
 function create(req, res){
-    req.body.flightNo = !!req.body.flightNo;
     req.body.departDate = req.body.departDate.trim();
     if (req.body.departDate) req.body.departDate = req.body.departDate.split(/\s*,\s*/);
-    console.log(req.body);
     const flight = new Flight(req.body);
     flight.save(function(err){
         if (err) return res.render('flights/new');
-        console.log(flight);
      res.redirect('/flights')
     });
  }

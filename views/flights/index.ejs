@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<h3>Flight List:</h3>
+<table>
+    <thead>
+      <tr>
+        <th>Airline</th>
+        <th>Airport</th>
+        <th>Flight Number</th>
+        <th>Depart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% flights.forEach(function(f) { %>
+        <tr>
+          <td><%= f.airline %></td>
+          <td><%= f.airport %></td>
+          <td><%= f.flightNo %></td>
+          <td><%= f.depart ? 'Yes' : 'No' %></td>
+        </tr>
+      <!-- Close the forEach using EJS here -->
+      <% }) %>
+    </tbody>
+  </table>
+
+<%- include('../partials/footer') %>
