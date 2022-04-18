@@ -1,7 +1,6 @@
 <%- include('../partials/header') %>
 
-<h3>Flight List:</h3>
-<table>
+<table id="list">
     <thead>
       <tr>
         <th>Airline</th>
@@ -18,7 +17,6 @@
           <td><%= f.flightNo %></td>
           <td><%= f.depart ? 'Yes' : 'No' %></td>
         </tr>
-      <!-- Close the forEach using EJS here -->
       <% }) %>
     </tbody>
   </table>
