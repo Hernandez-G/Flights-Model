@@ -15,7 +15,7 @@ function index(req, res) {
 }
 
 function create(req, res){
-    req.body.departDate = req.body.departDate.trim();
+    req.body.departDate = req.body.departDate;
     if (req.body.departDate) req.body.departDate = req.body.departDate.split(/\s*,\s*/);
     const flight = new Flight(req.body);
     flight.save(function(err){
