@@ -1,0 +1,48 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+    <div>Airline: </div>
+    <div><%= flight.airline %></div>
+    <div>Airport: </div>
+    <div><%= flight.airport %></div>
+    <div>Flight Number: </div>
+    <div><%= flight.flightNo %></div>
+    <div>Departs: </div>
+    <% if (flight.departs < Date.now()) { %>
+      <div style="color:red"><%= flight.departs %></div>
+      <% } else { %>
+      <div><%= flight.departs %></div>
+  <% } %>
+
+  </section>
+
+  <br><br>
+<h2>Destinations</h2>
+
+<form method="POST" action="/destinations/flights/<%= flight._id %>">
+  <label>Airport:
+    <select name="airport">
+      <option value="DEN">DEN</option>
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
+  </label><br>
+  </select>
+  
+  <label>Arrival:</label>
+  <input type="datetime-local" name="arrivals">
+</label><br>
+</select>
+<input type="submit" value="Add Destination">
+</form>
+
+<ul>
+  <% for(let i = 0; i < flight.destination.length; i++){%>
+    <li><%= flight.destination[i].airport%> <%= flight.destination[i].arrivals%></li>
+  <% } %>
+
+</ul>
+
+<%- include('../partials/footer') %>
