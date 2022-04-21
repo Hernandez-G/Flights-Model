@@ -35,17 +35,23 @@
   </label><br>
   
   <label>Arrival:</label>
-  <input type="datetime-local" name="arrivals">
+  <input type="datetime-local" name="arrival">
 </label><br>
 </select>
 <input type="submit" value="Add Destination">
 
+
+
 <ul>
   <% for(let i = 0; i < flight.destination.length; i++){%>
-    <li><%= flight.destination[i].airport%> <%= flight.destination[i].arrivals%></li>
-  <% } %>
-</ul>
+    <li><%= flight.destination[i].airport%> <%= flight.destination[i].arrival%></li>
+    <% } %>
+  </ul>
 </form>
 
 
+<h2>Ticket</h2>
+
+<a href="/flights/<%= flight._id %>/tickets/new">New Tickets</a>
+  
 <%- include('../partials/footer') %>
