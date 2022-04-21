@@ -42,16 +42,25 @@
 
 
 
+</form>
+
 <ul>
   <% for(let i = 0; i < flight.destination.length; i++){%>
     <li><%= flight.destination[i].airport%> <%= flight.destination[i].arrival%></li>
     <% } %>
   </ul>
-</form>
 
 
 <h2>Ticket</h2>
 
 <a href="/flights/<%= flight._id %>/tickets/new">New Tickets</a>
-  
+
+
+<ul>
+  <% for(let i = 0; i < tickets.length; i++){%>
+    <li><%= tickets[i].seat%> <%= tickets[i].price%></li>
+    <% } %>
+</ul>
+    
+
 <%- include('../partials/footer') %>
