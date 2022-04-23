@@ -40,6 +40,7 @@
 </label><br><br>
 <input type="submit"  value="Add Destination">
 
+
 </form>
 <br></br>
 <table>
@@ -54,6 +55,8 @@
     <tr>
       <td><%= flight.destination[i].airport%></td>
       <td><%= flight.destination[i].arrival%></td>
+      <td><a href="/flights/<%= flight._id %>/tickets/new">Select</a></td>
+
     </tr>
     <% } %>
   </tbody>
@@ -64,8 +67,6 @@
 
 
 <h3>Ticket</h3>
-
-<a href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
 
 <table>
   <thead>
