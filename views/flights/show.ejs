@@ -20,7 +20,7 @@
   
 </table>
 
-<h2>Destinations</h2>
+<h2>Destinations:</h2>
 
 <form method="POST"
  action="/destinations/flights/<%= flight._id %>">
@@ -34,33 +34,55 @@
     </select>
   </label><br>
   
+
   <label>Arrival:</label>
-  <input type="datetime-local" name="arrival">
-</label><br>
-</select>
-<input type="submit" value="Add Destination">
-
-
+  <input type="datetime-local" required name="arrival">
+</label><br><br>
+<input type="submit"  value="Add Destination">
 
 </form>
-
-<ul>
+<br></br>
+<table>
+  <thead>
+    <tr>
+      <th>Airport</th>
+      <th>Arrival</th>
+    </tr>
+  </thead>
+  <tbody>
   <% for(let i = 0; i < flight.destination.length; i++){%>
-    <li><%= flight.destination[i].airport%> <%= flight.destination[i].arrival%></li>
+    <tr>
+      <td><%= flight.destination[i].airport%></td>
+      <td><%= flight.destination[i].arrival%></td>
+    </tr>
     <% } %>
-  </ul>
+  </tbody>
+</table>
 
 
-<h2>Ticket</h2>
-
-<a href="/flights/<%= flight._id %>/tickets/new">New Tickets</a>
 
 
-<ul>
+
+<h3>Ticket</h3>
+
+<a href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>Seat</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
   <% for(let i = 0; i < tickets.length; i++){%>
-    <li><%= tickets[i].seat%> <%= tickets[i].price%></li>
+    <td><%= tickets[i].seat%></td>
+    <td><%= tickets[i].price%></td>
+    </tr>
     <% } %>
-</ul>
-    
+  </tbody>
+</table>
+
 
 <%- include('../partials/footer') %>

@@ -6,3 +6,31 @@ body {
 a {
   color: #00B7FF;
 }
+
+#show-page {
+  background-color: #cce3ec;
+}
+
+/* th {
+  font-size: 15px;
+  /* justify-content: space-evenly?; */
+/* } */
+/* 
+td {
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+} */ 
+
+h2 {
+  font-size: 20px;
+}
+
+option {
+  font-size: 10px;
+}
+
+#airport {
+  font-size: 15px;
+}
+
